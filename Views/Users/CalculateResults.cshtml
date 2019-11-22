@@ -1,0 +1,69 @@
+﻿@model HighfieldTest.Models.AgeAndColours
+
+@{
+    ViewBag.Title = "CalculateResults";
+}
+
+<h2>Calculated Results</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Colours")
+        </th>
+        <th>
+            @Html.DisplayName("Frequency")
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.topColours)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.colour)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.count)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("UserId")
+        </th>
+        <th>
+            @Html.DisplayName("OriginalAge")
+        </th>
+        <th>
+            @Html.DisplayName("AgePlusTwenty")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ages)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.originalAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.agePlusTwenty)
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.ActionLink("Post", "PostMyResults", "Users", null, new { @class = "btn btn-primary" })
+
+
